@@ -1,0 +1,102 @@
+textarea {
+    resize: none;
+}
+
+body {
+    position: relative;
+    font-family: 'K2D', sans-serif;
+}
+
+.background-img {
+    background-image: url(../img/board.jpg);
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+    height: 100vh;
+}
+
+.dark-trans {
+    background-color: #1A1A1A!important;
+    opacity: 0.8;
+}
+
+.intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.card-nested {
+    border-bottom-color: rgba(0, 0, 0, 0.125) !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px !important;
+    border-bottom-right-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+}
+
+.rotate {
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    -ms-transition: -ms-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+.rotate:hover {
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+}
+
+.tilt-right {
+    -webkit-transition: -webkit-transform .4s ease;
+    -ms-transition: -ms-transform .4s ease;
+    transition: transform .4s ease;
+}
+
+.tilt-right:hover {
+    transform:rotate(20deg);
+    -ms-transform:rotate(20deg);
+    -webkit-transform:rotate(20deg);
+}
+
+.tilt-left {
+    -webkit-transition: -webkit-transform .4s ease;
+    -ms-transition: -ms-transform .4s ease;
+    transition: transform .4s ease;
+}
+
+.tilt-left:hover {
+    transform:rotate(-20deg);
+    -ms-transform:rotate(-20deg);
+    -webkit-transform:rotate(-20deg);
+}
+
+.vertical-center {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+pre.unstyled {
+	display: inherit;
+	padding: 0;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	word-break: inherit;
+	word-wrap: inherit;
+	background-color: inherit;
+	border: none;
+	border-radius: 0;
+	white-space: pre-wrap;
+	margin-bottom: 0;
+	font-family: inherit;
+}

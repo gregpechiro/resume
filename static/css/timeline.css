@@ -1,0 +1,109 @@
+.timeline-page .timeline-item .date-label-left,
+.timeline-page .timeline-item .date-label-left::after,
+.timeline-page .timeline-item .duration-right,
+.timeline-page .timeline-item .duration-right::after,
+.container-filter li a.active,
+.timeline-page::after {
+    background-color: #CD5C5C ;
+}
+
+.timeline-page {
+    padding: 10px 0;
+    position: relative;
+    margin-top: 35px;
+}
+
+.timeline-page::after {
+    content: "";
+    height: 95%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+}
+
+.timeline-page .timeline-item .date-label-left {
+    border-radius: 42px;
+    color: #fff;
+    float: right;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 15px;
+    padding: 12px 20px;
+    position: relative;
+    text-align: right;
+    border: 5px solid rgba(255, 255, 255, 0.48);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+.timeline-page .timeline-item .date-label-left::after {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    content: "";
+    height: 20px;
+    position: absolute;
+    right: -45px;
+    top: 5px;
+    width: 20px;
+    z-index: 1;
+}
+
+.timeline-page .timeline-item .event-description-right {
+    text-align: left;
+    margin-left: 15px;
+    float: left;
+    border-radius: 0;
+}
+
+.timeline-page .timeline-item .duration-right {
+    border-radius: 42px;
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 15px;
+    padding: 12px 20px;
+    position: relative;
+    text-align: left;
+    border: 5px solid rgba(255, 255, 255, 0.48);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+.timeline-page .timeline-item .duration-right::after {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    content: "";
+    height: 20px;
+    left: -45px;
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    z-index: 1;
+}
+
+.timeline-page .timeline-item .event-description-left {
+    text-align: right;
+    margin-right: 15px;
+    float: right;
+    border-radius: 0;
+}
+
+.timeline-page h4,
+.event-description-left h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+.timeline-subtitle {
+    line-height: 26px;
+    font-size: 15px;
+    color: #666;
+}
