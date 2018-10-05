@@ -487,7 +487,7 @@
 			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 				<div class="modal-content dark-trans text-white border border-white">
 					<div class="modal-header">
-						<h5 class="modal-title" id="experienceModalTitle">COMPANY</h5>
+						<h5 class="modal-title" id="experienceModalTitle"></h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="text-white">&times;</span>
 						</button>

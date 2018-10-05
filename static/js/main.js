@@ -74,6 +74,7 @@ $(document).ready(function() {
 
     // generate modal inner content from experience data
     function genModalContent(data) {
+        $('#experienceModalTitle').html(data.NAME);
         // check for empty data
         if (data == {} || (data.DESCRIPTION == '' && data.EDUCATION == '')) {
             // reset modal content
