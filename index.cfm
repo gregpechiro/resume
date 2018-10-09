@@ -5,16 +5,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Greg Pechiro's Resume</title>
-		<!-- favicon -->
-		<link rel="shortcut icon" href="static/img/favicon.ico">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<!-- Fontawesome Icons CSS -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-		<!-- Google Font CSS -->
-		<link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="static/css/main.css">
+
+		<cfinclude template = "includes/head.cfm">
+
 		<!-- Timeline CSS -->
 		<link rel="stylesheet" href="static/css/timeline.css">
 	</head>
@@ -89,7 +82,7 @@
 						<h2><u>Contact Information</u></h2>
 					</div>
 				</div>
-				<cfquery name="meQuery" datasource="resume">
+				<cfquery name="meQuery">
 					SELECT * FROM me
 				</cfquery>
 				<div class="row justify-content-center">
@@ -168,7 +161,7 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
-											<cfquery name = "language" datasource = "resume">
+											<cfquery name = "language">
 											    SELECT * FROM skill WHERE category='language'
 											</cfquery>
 											<cfoutput query="language">
@@ -202,7 +195,7 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
-											<cfquery name = "libFrame" datasource = "resume">
+											<cfquery name = "libFrame">
 											    SELECT * FROM skill WHERE category='library-framework'
 											</cfquery>
 											<cfoutput query="libFrame">
@@ -236,7 +229,7 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
-											<cfquery name = "database" datasource = "resume">
+											<cfquery name = "database">
 											    SELECT * FROM skill WHERE category='database'
 											</cfquery>
 											<cfoutput query="database">
@@ -270,7 +263,7 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
-											<cfquery name = "other" datasource = "resume">
+											<cfquery name = "other">
 											    SELECT * FROM skill WHERE category='other'
 											</cfquery>
 											<cfoutput query="other">
@@ -319,7 +312,7 @@
 						<!-- Experience Timeline Start -->
 						<div class="timeline-page">
 
-							<cfquery name = "experience" datasource = "resume">
+							<cfquery name = "experience">
 								SELECT id, city,name,state,title,year FROM experience ORDER BY sort
 							</cfquery>
 							<cfoutput query="experience" >
@@ -379,7 +372,7 @@
 						<!-- References Carousel Start -->
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<cfquery name = "references" datasource = "resume">
+								<cfquery name = "references">
 									SELECT * FROM reference
 								</cfquery>
 								<cfoutput query="references">
@@ -484,7 +477,7 @@
 
 		<!-- Experience Modal Start -->
 		<div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="experienceModalTitle" aria-hidden="true">
-			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content dark-trans text-white border border-white">
 					<div class="modal-header">
 						<h5 class="modal-title" id="experienceModalTitle"></h5>
@@ -499,12 +492,8 @@
 		</div>
 		<!-- Experience Modal End -->
 
-		<!-- JQuery JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<!-- Popper JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<!-- Bootstrap JS -->
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<cfinclude template = "includes/scripts.cfm">
+
 		<!-- Additional Easing Functions JS -->
 		<script src="static/js/easing.js" charset="utf-8"></script>
 		<!-- Custom JS -->
