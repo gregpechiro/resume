@@ -1,4 +1,4 @@
-component persistent=true {
+component persistent=true accessors="true" {
 
     property name="id" fieldtype="id" generator="increment";
     property name="year" ormtype="string";

@@ -1,7 +1,7 @@
 <cfcomponent rest="true" restpath="/experience">
     <cffunction name="experienceGetOne" access="remote" restpath="{id}" produces="application/json" returntype="String" httpmethod="GET">
         <cfargument name="id" required="true" restargsource="Path" type="numeric"/>
-        <cfset experience = ormExecuteQuery( "select description, education, name FROM experience WHERE id = :id", {id:#id#}, true)>
+        <!--- <cfset experience = ormExecuteQuery( "select description, education, name FROM experience WHERE id = :id", {id:#id#}, true)> --->
         <cfset json = SerializeJSON(experience)>
         <cfreturn json>
 

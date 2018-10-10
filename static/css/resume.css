@@ -1,0 +1,17 @@
+body {
+    position: relative;
+    font-family: 'K2D', sans-serif;
+}
+
+.background-img {
+    background-image: url(../img/board.jpg);
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+    height: 100vh;
+}
+
+.intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+}

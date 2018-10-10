@@ -55,7 +55,7 @@ $(document).ready(function() {
         }
         // no cache; request experience data from rest server
         $.ajax({
-            'url': '/rest/resume/experience/' + id,
+            'url': baseURL + id,
             'method': 'GET',
             'success': function(data) {
                 // ganerate modal content from response data
@@ -74,9 +74,9 @@ $(document).ready(function() {
 
     // generate modal inner content from experience data
     function genModalContent(data) {
-        $('#experienceModalTitle').html(data.NAME);
+        $('#experienceModalTitle').html(data.name);
         // check for empty data
-        if (data == {} || (data.DESCRIPTION == '' && data.EDUCATION == '')) {
+        if (data == {} || (data.description == '' && data.education == '')) {
             // reset modal content
             resetModalContent();
             return;
@@ -86,22 +86,22 @@ $(document).ready(function() {
         // create ul tabs and div pane
         var ul = $('<ul class="nav nav-tabs"></ul>');
         var divPane = $('<div class="tab-content" id="tabContent"></div>');
-        if (data.DESCRIPTION !== '') {
+        if (data.description !== '') {
             // create description tab and pane
             ul.append('<li id="description-li" class="nav-item">' +
                 '<a class="nav-link active text-danger" id="description-tab" data-toggle="tab" href="#description-pane" role="tab" aria-controls="description-pane" aria-selected="true">Experience</a>' +
             '</li>')
             divPane.append('<div class="tab-pane fade show active" id="description-pane" role="tabpanel" aria-labelledby="description-tab">'+
-                '<pre id="description-content" class="unstyled">' + data.DESCRIPTION + '</pre>' +
+                '<pre id="description-content" class="unstyled">' + data.description + '</pre>' +
             '</div>')
         }
-        if (data.EDUCATION !== '') {
+        if (data.education !== '') {
             // create education tab and pane; set to active if description does not exist
             ul.append('<li id="education-li" class="nav-item">' +
-                '<a class="nav-link text-danger' + ((data.DESCRIPTION == '') ? ' active' : '') + '" id="education-tab" data-toggle="tab" href="#education-pane" role="tab" aria-controls="education-pane" aria-selected="false">Education</a>' +
+                '<a class="nav-link text-danger' + ((data.description == '') ? ' active' : '') + '" id="education-tab" data-toggle="tab" href="#education-pane" role="tab" aria-controls="education-pane" aria-selected="false">Education</a>' +
             '</li>')
-            divPane.append('<div class="tab-pane fade' + ((data.DESCRIPTION == '') ? ' show active' : '') + '" id="education-pane" role="tabpanel" aria-labelledby="education-tab">' +
-                '<pre id="education-content" class="unstyled">' + data.EDUCATION + '</pre>' +
+            divPane.append('<div class="tab-pane fade' + ((data.description == '') ? ' show active' : '') + '" id="education-pane" role="tabpanel" aria-labelledby="education-tab">' +
+                '<pre id="education-content" class="unstyled">' + data.education + '</pre>' +
             '</div>')
         }
         // append tab ul and div pane to modal body
