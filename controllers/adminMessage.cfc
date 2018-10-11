@@ -17,6 +17,8 @@ component accessors="true" {
     function save(rc) {
         var message = entityNew('message');
         variables.framework.populate(message);
+        message.opened = false;
+        message.timestamp = now().getTime();
         messageService.save(message);
         rc.alertSuccess = "Successfully saved message"
         variables.framework.redirect(action = 'admin.message', preserve = 'alertSuccess');
@@ -26,6 +28,13 @@ component accessors="true" {
         messageService.delete(rc.id);
         rc.alertSuccess = "Successfully deleted message"
         variables.framework.redirect(action = 'admin.message', preserve = "alertSuccess");
+    }
+
+    function restOne(rc) {
+        var message = messageService.one(rc.id);
+        message.opened = true;
+        messageService.save(message);
+        variables.framework.renderData().data(message).type("json");
     }
 
 }

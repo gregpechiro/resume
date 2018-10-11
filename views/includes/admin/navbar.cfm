@@ -24,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#buildURL('admin.message')#">Messages</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#buildURL('main.default')#">Main Site</a>
+                </li>
             </ul>
         </div>
     </nav>

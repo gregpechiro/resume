@@ -5,7 +5,7 @@ component persistent=true accessors="true" {
     property name="email" ormtype="string";
 	property name="subject" ormtype="string";
     property name="body" ormtype="string";
-    property name="timestamp" ormtype="integer";
+    property name="timestamp" ormtype="long";
 	property name="opened" ormtype="boolean";
 
 }

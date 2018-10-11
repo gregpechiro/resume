@@ -1,3 +1,23 @@
+function scroll(top) {
+    var bodyHeight = $('body').height();
+    if (top < 60) {
+        // top is less than 60; scroll to top
+        $('html, body').animate({
+            scrollTop: top
+        }, 800, 'easeOutExpo');
+    } else if ((bodyHeight - top + 60) < window.innerHeight) {
+        // top is bellow available space; scroll to the bottom of the page
+        $('html, body').animate({
+            scrollTop: bodyHeight - window.innerHeight
+        }, 800, 'easeOutExpo');
+    } else {
+        // scroll to the top of the location plus the navbar height
+        $('html, body').animate({
+            scrollTop: top - 60
+        }, 800, 'easeOutExpo');
+    }
+}
+
 $(document).ready(function() {
 
     // scroll on navbar link click
@@ -9,24 +29,9 @@ $(document).ready(function() {
         // get the scroll location id, top position, and total body height
         var div = $($(this).attr('href'));
         var top = div.offset().top;
-        var bodyHeight = $('body').height();
-        if (top < 60) {
-            // top is less than 60; scroll to top
-            $('html, body').animate({
-                scrollTop: top
-            }, 800, 'easeOutExpo');
-        } else if ((bodyHeight - top + 60) < window.innerHeight) {
-            // top is bellow available space; scroll to the bottom of the page
-            $('html, body').animate({
-                scrollTop: bodyHeight - window.innerHeight
-            }, 800, 'easeOutExpo');
-        } else {
-            // scroll to the top of the location plus the navbar height
-            $('html, body').animate({
-                scrollTop: $(div).offset().top - 60
-            }, 800, 'easeOutExpo');
-        }
+        scroll(top);
     });
+
 
     // scroll on skill accordian click
     $('.skill').click(function() {
@@ -39,7 +44,7 @@ $(document).ready(function() {
     var experience = {};
 
     // reset experience modal on close
-    $('#experienceModalBody').on('hidden.bs.modal', function (e) {
+    $('#experienceModalBody').on('hidden.bs.modal', function () {
         resetModalContent();
     });
 

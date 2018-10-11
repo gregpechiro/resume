@@ -40,9 +40,9 @@
 	                                <form action="#buildURL('security.authenticate')#" method="post">
 	                                    <div class="form-group">
 	                                        <label>Username</label>
-	                                        <cfif structKeyExists(rc, "loginerrors") && structKeyExists(rc.loginerrors, "username")>
-	                                            <span class="text-danger"><br><small>#rc.loginerrors.username#</small></span>
-	                                        </cfif>
+	                                    	<cfif structKeyExists(rc, "loginerrors") && structKeyExists(rc.loginerrors, "username")>
+												<span class="text-danger"><br><small>#rc.loginerrors.username#</small></span>
+	                                    	</cfif>
 											<input class="form-control" type="text" name="username">
 	                                    </div>
 	                                    <div class="form-group">

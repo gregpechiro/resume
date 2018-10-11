@@ -1,21 +1,16 @@
 component accessors="true" {
 
     property experienceService;
-    property beanFactory;
-
-    function init( any fw ) {
-        variables.fw = fw;
-        return this;
-    }
+    property framework;
 
     function restAll() {
         var resultData = experienceService.all();
-        variables.fw.renderData().data(resultData).type("json");
+        variables.framework.renderData().data(resultData).type("json");
     }
 
     function restOne(rc) {
-        var resultData = experienceService.one(rc.id);
-        variables.fw.renderData().data( resultData ).type("json");
+        var experience = experienceService.one(rc.id);
+        variables.framework.renderData().data(experience).type("json");
     }
 
 }

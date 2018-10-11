@@ -1,3 +1,8 @@
+<cfparam name="rc.message.name" default=""/>
+<cfparam name="rc.message.subject" default=""/>
+<cfparam name="rc.message.email" default=""/>
+<cfparam name="rc.message.body" default=""/>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -65,13 +70,13 @@
 								<p class="intro">
 									I am Greg Pechiro and I am a software developer. This site is an online version of my resume.
 									Not only is it designed to present information about myself it is also a representaion of my abilities.
-									It's an opertunity to explain what I am capable of and demonstrate some of it at the same time.
+									It's an opportunity to explain what I am capable of and demonstrate some of it at the same time.
 								</p>
 								<span class="intro">
-									This site was built with HTML5, JavaScript (JQuery), and CSS3. It is hosted on an Ubuntu virtual machine using ColdFusion2018.
-									To show my versatility, the data is stored on a MySql database and is accessed in 2 different ways, directly with ColdFusion
-									in the cfml and through AJAX using JQuery.<br>
-									Want to see how it works? View all of the source code on <a href="#" class="text-danger" target="_blank">GitHub.</a>
+									This site was built with HTML5, JavaScript (JQuery), and CSS3. It is hosted on an Ubuntu virtual machine using
+									ColdFusion 2018 running framework one (FW/1). The data is stored on a MySql database and is accessed using
+									ColdFusion's built in ORM and FW/1's dependency injection (DI/1)<br>
+									Want to see how it works? View all of the source code on <a href="https://github.com/gregpechiro/resume" class="text-danger" target="_blank">GitHub.</a>
 								</span>
 							</div>
 						</div>
@@ -138,7 +143,9 @@
 					</div>
 					<div class="w-100"></div>
 					<div class="col-lg-3">
-						<button type="button" class="btn btn-danger btn-lg btn-block">Download My resume</button>
+						<cfoutput>
+							<a href="#rc.baseURL#static/Greg Pechiro's resume.docx" download class="btn btn-danger btn-lg btn-block">Download My Resume</a>
+						</cfoutput>
 					</div>
 				</div>
 			</div>
@@ -426,39 +433,60 @@
 				<div class="row justify-content-center text-center">
 					<div class="col-12 col-md-8">
 						<p>
-							Want to leave me a message about what you think? Fill out the form bellow!
+							Want to leave me a message about what you think? Fill out the form below!
 						</p>
-						<form action="" method="post">
-							<div class="row justify-content-center">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="name">Name</label>
-										<input type="text" class="form-control" id="name" placeholder="Name">
+						<cfoutput>
+							<form action="#buildURL('message.send')#" method="post">
+								<div class="row justify-content-center">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="name">Name</label>
+											<cfif structKeyExists(rc, "messageErrors") && structKeyExists(rc.messageErrors, "name")>
+												<span class="text-danger"><br><small>#rc.messageErrors.name#</small></span>
+										   	</cfif>
+											<input type="text" class="form-control" name="name" placeholder="Name" value="#rc.message.name#">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="email">Email address</label>
+											<cfif structKeyExists(rc, "messageErrors") && structKeyExists(rc.messageErrors, "email")>
+												<span class="text-danger"><br><small>#rc.messageErrors.email#</small></span>
+										   	</cfif>
+											<input type="email" class="form-control" name="email" placeholder="Email" value="#rc.message.email#">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="subject">Subject</label>
+											<cfif structKeyExists(rc, "messageErrors") && structKeyExists(rc.messageErrors, "subject")>
+												<span class="text-danger"><br><small>#rc.messageErrors.subject#</small></span>
+										   	</cfif>
+											<input type="text" class="form-control" name="subject" placeholder="Subject" value="#rc.message.subject#">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group">
+											<label for="body">Message</label>
+											<cfif structKeyExists(rc, "messageErrors") && structKeyExists(rc.messageErrors, "body")>
+												<span class="text-danger"><br><small>#rc.messageErrors.body#</small></span>
+										   	</cfif>
+											<textarea class="form-control" name="body" rows="8">#rc.message.body#</textarea>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<button class="btn btn-danger btn-block">Send</button>
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="email">Email address</label>
-										<input type="email" class="form-control" id="email" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="subject">Subject</label>
-										<input type="subject" class="form-control" id="subject" placeholder="Subject">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<label for="body">Message</label>
-										<textarea class="form-control" name="body" rows="8"></textarea>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<button type="button" name="send" id="send" class="btn btn-danger btn-block">Send</button>
-								</div>
-							</div>
-						</form>
+							</form>
+						</cfoutput>
+					</div>
+				</div>
+				<div class="row justify-content-center text-center pt-3">
+					<div class="col-lg-3">
+						<cfoutput>
+							<a href="#rc.baseURL#static/Greg Pechiro's resume.docx" download class="btn btn-danger btn-lg btn-block">Download My Resume</a>
+						</cfoutput>
 					</div>
 				</div>
 			</div>
@@ -510,8 +538,19 @@
 			<script src="#rc.baseURL#static/js/easing.js" charset="utf-8"></script>
 			<!-- Custom JS -->
 			<script src="#rc.baseURL#static/js/main.js"></script>
+
 		</cfoutput>
 
+		<cfif  structKeyExists(rc, "messageErrors")>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var messageDiv = $('#message');
+					var top = messageDiv.offset().top;
+					scroll(top);
+				});
+
+			</script>
+		</cfif>
 	</body>
 
 </html>

@@ -38,6 +38,7 @@ component extends=framework.one {
 			{"$POST/admin/reference/$" = "/adminReference/save"},
 			{"$POST/admin/reference/:id/$" = "/adminReference/delete/id/:id"},
 			{"$GET/admin/reference/$" = "/adminReference/all"},
+			{"$GET/admin/rest/message/:id/$" = "/adminMessage/restOne/id/:id"},
 			{"$GET/admin/message/:id/$" = "/adminMessage/one/id/:id"},
 			{"$POST/admin/message/$" = "/adminMessage/save"},
 			{"$POST/admin/message/:id/$" = "/adminMessage/delete/id/:id"},

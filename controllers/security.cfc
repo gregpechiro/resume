@@ -53,6 +53,9 @@ component accessors="true" {
             session.auth.userid = rc.user.getId();
             session.auth.isAdmin = rc.user.role == "ROLE_ADMIN";
             rc.alertSuccess = "Welcome";
+            if (session.auth.isAdmin) {
+                variables.framework.redirect("admin.me", 'alertSuccess');
+            }
             variables.framework.redirect("main.default", 'alertSuccess');
 
         }
