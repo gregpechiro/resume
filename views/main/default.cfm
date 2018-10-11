@@ -69,7 +69,7 @@
 							<div class="card-body">
 								<p class="intro">
 									I am Greg Pechiro and I am a software developer. This site is an online version of my resume.
-									Not only is it designed to present information about myself it is also a representaion of my abilities.
+									Not only is it designed to present information about myself it is also a representation of my abilities.
 									It's an opportunity to explain what I am capable of and demonstrate some of it at the same time.
 								</p>
 								<span class="intro">
