@@ -1,3 +1,4 @@
+<!--- Message Form Params --->
 <cfparam name="rc.message.name" default=""/>
 <cfparam name="rc.message.subject" default=""/>
 <cfparam name="rc.message.email" default=""/>
@@ -11,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Greg Pechiro's Resume</title>
 		<cfoutput>
+			<!--- Include Head --->
 			#view('includes/head')#
 			<!-- Page Custom CSS -->
 			<link rel="stylesheet" href="#rc.baseURL#static/css/resume.css">
@@ -50,11 +52,17 @@
 					<li class="nav-item">
 						<a class="nav-link scroll" href="#message">Message</a>
 					</li>
-					<li class="nav-item">
-						<cfoutput>
+					<cfoutput>
+						<cfif session.auth.isAdmin>
+							<li class="nav-item">
+								<a class="nav-link" href="#buildURL('admin.me')#">Admin Section</a>
+							</li>
+						</cfif>
+
+						<li class="nav-item">
 							<a class="nav-link" href="#buildURL('logout')#">Logout</a>
-						</cfoutput>
-					</li>
+						</li>
+					</cfoutput>
 				</ul>
 			</div>
 		</nav>
@@ -84,7 +92,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- Introdustion End -->
+		<!-- Introduction End -->
 
 		<!-- Contact Information Start -->
 		<section id="contact">
@@ -94,6 +102,7 @@
 						<h2><u>Contact Information</u></h2>
 					</div>
 				</div>
+				<!--- Query DB For My Information --->
 				<cfquery name="meQuery">
 					SELECT * FROM me
 				</cfquery>
@@ -143,6 +152,7 @@
 					</div>
 					<div class="w-100"></div>
 					<div class="col-lg-3">
+						<!--- Download Resume Link --->
 						<cfoutput>
 							<a href="#rc.baseURL#static/Greg Pechiro's resume.docx" download class="btn btn-danger btn-lg btn-block">Download My Resume</a>
 						</cfoutput>
@@ -175,9 +185,11 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
+											<!--- Query DB For Language Skills --->
 											<cfquery name = "language">
 											    SELECT * FROM skill WHERE category='language'
 											</cfquery>
+											<!--- Loop Language Skills --->
 											<cfoutput query="language">
 												<div class="col-6 col-lg-3 mb-3 #((language.recordCount - language.currentRow) LT 4) ? 'mb-md-0' : ''# ">
 													<div class="card card-nested h-100">
@@ -209,9 +221,11 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
+											<!--- Query DB For Library And Framework Skills --->
 											<cfquery name = "libFrame">
 											    SELECT * FROM skill WHERE category='library-framework'
 											</cfquery>
+											<!--- Loop Library And Framework Skills --->
 											<cfoutput query="libFrame">
 												<div class="col-6 col-lg-3 mb-3 #((libFrame.recordCount - libFrame.currentRow) LT 4) ? 'mb-md-0' : ''#">
 													<div class="card card-nested h-100">
@@ -243,9 +257,11 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
+											<!--- Query DB For Database Skills --->
 											<cfquery name = "database">
 											    SELECT * FROM skill WHERE category='database'
 											</cfquery>
+											<!--- Loop Database Skills --->
 											<cfoutput query="database">
 												<div class="col-6 col-lg-3 mb-3 #((database.recordCount - database.currentRow) LT 4) ? 'mb-md-0' : ''#">
 													<div class="card card-nested h-100">
@@ -268,7 +284,7 @@
 							</div>
 							<!-- Databases End -->
 
-							<!-- Command Line Start -->
+							<!-- Other Technologies Start -->
 							<div class="card">
 								<div class="card-header bg-danger text-white pointer skill" id="headingCLI" data-toggle="collapse" data-target="#collapseCLI" aria-expanded="true" aria-controls="collapseCLI">
 									Command line / Other Technologies
@@ -277,9 +293,11 @@
 									<div class="card-body">
 										<div class="row justify-content-center">
 
+											<!--- Query DB For Other Technology Skills --->
 											<cfquery name = "other">
 											    SELECT * FROM skill WHERE category='other'
 											</cfquery>
+											<!--- Loop Other Technology Skills --->
 											<cfoutput query="other">
 												<div class="col-6 col-lg-3 mb-3 #((other.recordCount - other.currentRow) LT 4) ? 'mb-md-0' : ''# ">
 													<div class="card card-nested h-100">
@@ -300,7 +318,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- Command Line End -->
+							<!-- Other Technologies End -->
 
 						</div>
 						<!-- Skills Accordian End -->
@@ -326,12 +344,14 @@
 						<!-- Experience Timeline Start -->
 						<div class="timeline-page">
 
+							<!--- Query DB For Experiences --->
 							<cfquery name = "experience">
 								SELECT id, city,name,state,title,year FROM experience ORDER BY sort
 							</cfquery>
+							<!--- Loop Experiences --->
 							<cfoutput query="experience" >
 								<cfif experience.currentRow MOD 2 NEQ 0>
-									<!--- odd row dates go on the left --->
+									<!--- Odd Row Dates Go On The Left --->
 									<div class="timeline-item">
 										<div class="row" data-aos="fade-up">
 											<div class="col-6">
@@ -346,7 +366,7 @@
 										</div>
 									</div>
 								<cfelse>
-									<!--- even row dates go on the right --->
+									<!--- Even Row Dates Go On The Right --->
 									<div class="timeline-item">
 										<div class="row" data-aos="fade-up">
 											<div class="col-6">
@@ -386,9 +406,12 @@
 						<!-- References Carousel Start -->
 						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
+
+								<!--- Query DB For References --->
 								<cfquery name = "references">
 									SELECT * FROM reference
 								</cfquery>
+								<!--- Loop References --->
 								<cfoutput query="references">
 									<div class="carousel-item #(references.currentRow == 1) ? 'active' : ''#">
 										<div class="reference bg-secondary text-white py-5 rounded">
@@ -484,6 +507,7 @@
 				</div>
 				<div class="row justify-content-center text-center pt-3">
 					<div class="col-lg-3">
+						<!--- Download Resume Link --->
 						<cfoutput>
 							<a href="#rc.baseURL#static/Greg Pechiro's resume.docx" download class="btn btn-danger btn-lg btn-block">Download My Resume</a>
 						</cfoutput>
@@ -493,21 +517,13 @@
 		</section>
 		<!-- Message End -->
 
-		<!-- Footer Start -->
-		<footer class="pt-5">
-			<div class="container pt-5">
-				<div class="row justify-content-center text-center">
-					<div class="col">
-						<a class="text-secondary" href="https://github.com/gregpechiro" target="_blank">
-							<i class="fab fa-github fa-2x"></i>
-						</a>
-						<p>
-							&copy; 2018 Greg Pechiro
-						</p>
-					</div>
-				</div>
+		<cfoutput>
+			<div class="pt-5">
+				<!--- Include Footer --->
+				#view('includes/footer')#
 			</div>
-		</footer>
+		</cfoutput>
+
 		<!-- Footer End -->
 
 		<!-- Experience Modal Start -->
@@ -526,12 +542,13 @@
 			</div>
 		</div>
 		<!-- Experience Modal End -->
-
-		<!--- <cfinclude template = "/includes/scripts.cfm"> --->
 		<cfoutput>
+			<!--- Set JS VAriable --->
 			<script type="text/javascript">
 				var baseURL = '#buildCustomURL('/rest/experience/')#';
 			</script>
+
+			<!-- include Scripts -->
 			#view('includes/scripts')#
 
 			<!-- Additional Easing Functions JS -->
@@ -542,6 +559,7 @@
 		</cfoutput>
 
 		<cfif  structKeyExists(rc, "messageErrors")>
+			<!-- Scroll to Message Form On Error -->
 			<script type="text/javascript">
 				$(document).ready(function() {
 					var messageDiv = $('#message');

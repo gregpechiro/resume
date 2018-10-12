@@ -1,3 +1,4 @@
+// scoll to function
 function scroll(top) {
     var bodyHeight = $('body').height();
     if (top < 60) {

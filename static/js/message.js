@@ -39,6 +39,7 @@ $(document).ready(function() {
         resetModalContent();
     });
 
+    // fill out modal content
     function setModalContent(message) {
         resetModalContent();
         $('#messageModalTitle').html(message.subject);
@@ -47,6 +48,7 @@ $(document).ready(function() {
         $('#messageModalBody').html('<strong><u>Message</u></strong>: \n' + message.body);
     }
 
+    // reset modal content
     function resetModalContent() {
         $('#messageModalTitle').html('');
         $('#messageModalName').html('');

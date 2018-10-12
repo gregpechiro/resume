@@ -16,10 +16,10 @@ component accessors="true" {
 
     function save(rc) {
         var user = entityNew('user');
-        if (StructKeyExists(rc, "id") && rc.password == '') {
+        if (StructKeyExists(rc, "id") && rc.password == '') { // existing user, no password input, reuse existin password
             user = userService.one(rc.id);
             rc.password = user.password;
-        } else {
+        } else { // new user or new password, hash
             rc.password = hash(rc.password, 'SHA-512');
         }
         variables.framework.populate(user);

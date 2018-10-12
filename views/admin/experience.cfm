@@ -1,3 +1,12 @@
+<cfparam name="rc.experience.year" default=""/>
+<cfparam name="rc.experience.name" default=""/>
+<cfparam name="rc.experience.city" default=""/>
+<cfparam name="rc.experience.state" default=""/>
+<cfparam name="rc.experience.title" default=""/>
+<cfparam name="rc.experience.sort" default=""/>
+<cfparam name="rc.experience.description" default=""/>
+<cfparam name="rc.experience.education" default=""/>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,80 +26,44 @@
 				<div class="col">
 					<legend>Experience</legend>
 					<cfoutput>
-						<cfif StructKeyExists(rc, "experience")>
-							<form action="#buildCustomURL('/admin/experience')#" method="post">
-								<div class="form-group">
-									<label>Year</label>
-									<input name="year" type="text" class="form-control" value="#rc.experience.year#">
-								</div>
-								<div class="form-group">
-									<label>Name</label>
-									<input name="name" type="text" class="form-control" value="#rc.experience.name#">
-								</div>
-								<div class="form-group">
-									<label>City</label>
-									<input name="city" type="text" class="form-control" value="#rc.experience.city#">
-								</div>
-								<div class="form-group">
-									<label>State</label>
-									<input name="state" type="text" class="form-control" value="#rc.experience.state#">
-								</div>
-								<div class="form-group">
-									<label>Title</label>
-									<input name="title" type="text" class="form-control" value="#rc.experience.title#">
-								</div>
-								<div class="form-group">
-									<label>Sort</label>
-									<input name="sort" type="number" class="form-control" value="#rc.experience.sort#">
-								</div>
-								<div class="form-group">
-									<label>Description</label>
-									<textarea name="description" rows="9" class="form-control">#rc.experience.description#</textarea>
-								</div>
-								<div class="form-group">
-									<label>Education</label>
-									<textarea name="education" rows="9" class="form-control">#rc.experience.education#</textarea>
-								</div>
-									<input type="hidden" name="id" value="#rc.experience.id#">
-								<button class="btn btn-primary btn-block">Save Experience</button>
-							</form>
-						<cfelse>
-							<form action="#buildCustomURL('/admin/experience')#" method="post">
-								<div class="form-group">
-									<label>Year</label>
-									<input name="year" type="text" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>Name</label>
-									<input name="name" type="text" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>City</label>
-									<input name="city" type="text" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>State</label>
-									<input name="state" type="text" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>Title</label>
-									<input name="title" type="text" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>Sort</label>
-									<input name="sort" type="number" class="form-control" value="">
-								</div>
-								<div class="form-group">
-									<label>Description</label>
-									<textarea name="description" rows="9" class="form-control"></textarea>
-								</div>
-								<div class="form-group">
-									<label>Education</label>
-									<textarea name="education" rows="9" class="form-control"></textarea>
-								</div>
-								<button class="btn btn-primary btn-block">Save Experience</button>
-							</form>
-						</cfif>
+						<form action="#buildCustomURL('/admin/experience')#" method="post">
+							<div class="form-group">
+								<label>Year</label>
+								<input name="year" type="text" class="form-control" value="#rc.experience.year#">
+							</div>
+							<div class="form-group">
+								<label>Name</label>
+								<input name="name" type="text" class="form-control" value="#rc.experience.name#">
+							</div>
+							<div class="form-group">
+								<label>City</label>
+								<input name="city" type="text" class="form-control" value="#rc.experience.city#">
+							</div>
+							<div class="form-group">
+								<label>State</label>
+								<input name="state" type="text" class="form-control" value="#rc.experience.state#">
+							</div>
+							<div class="form-group">
+								<label>Title</label>
+								<input name="title" type="text" class="form-control" value="#rc.experience.title#">
+							</div>
+							<div class="form-group">
+								<label>Sort</label>
+								<input name="sort" type="number" class="form-control" value="#rc.experience.sort#">
+							</div>
+							<div class="form-group">
+								<label>Description</label>
+								<textarea name="description" rows="9" class="form-control">#rc.experience.description#</textarea>
+							</div>
+							<div class="form-group">
+								<label>Education</label>
+								<textarea name="education" rows="9" class="form-control">#rc.experience.education#</textarea>
+							</div>
+							<cfif StructKeyExists(rc, "id")>
+								<input type="hidden" name="id" value="#rc.experience.id#">
+							</cfif>
+							<button class="btn btn-primary btn-block">Save Experience</button>
+						</form>
 					</cfoutput>
 				</div>
 

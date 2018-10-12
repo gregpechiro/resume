@@ -6,7 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Greg Pechiro's Resume</title>
 		<cfoutput>
+			<!--- Include Head --->
 			#view('includes/head')#
+			<!--- Page Custom CSS --->
 			<link rel="stylesheet" href="#rc.baseURL#static/css/login.css">
 		</cfoutput>
 	</head>
@@ -26,24 +28,26 @@
 		</nav>
 		<!-- Navbar End -->
 
-		<!-- login Start -->
 		<cfoutput>
-				<div class="container">
-		            <div class="row text-white text-center">
-						<div class="col pt-5">
-                            <div class="card dark-trans">
-                                <div class="card-body">
-                                    <h1>Something went wrong</h1>
-                                    <h3>Let's get you back to somewhere <a class="text-danger" href="#buildURL('main.default')#">familiar</a>.</h3>
-                                </div>
+			<!--- Error Begin --->
+			<div class="container">
+	            <div class="row text-white text-center">
+					<div class="col pt-5">
+                        <div class="card dark-trans">
+                            <div class="card-body">
+                                <h1>Something went wrong</h1>
+                                <h3>Let's get you back to somewhere <a class="text-danger" href="#buildURL('main.default')#">familiar</a>.</h3>
                             </div>
-						</div>
+                        </div>
 					</div>
 				</div>
-			<!--- login end --->
+			</div>
+			<!--- Error End --->
+
+			<!--- Include Footer --->
 			#view('includes/footer')#
+			<!--- Include Scripts --->
 			#view('includes/scripts')#
-			<script src="#rc.baseURL#static/js/toggle-password.js" charset="utf-8"></script>
 		</cfoutput>
 
 	</body>

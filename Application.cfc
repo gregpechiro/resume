@@ -55,10 +55,10 @@ component extends=framework.one {
     }
 
 	public function setupRequest() {
-        if(structKeyExists(url, "init")) { // use index.cfm?init to reload ORM
+        if(structKeyExists(url, "init")) { // ?init to reload
             setupApplication();
             ormReload();
-            location(url="index.cfm",addToken=false);
+            location(url="/", addToken=false);
         }
 
         controller("security.authorize");
