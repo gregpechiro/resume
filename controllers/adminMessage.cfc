@@ -17,8 +17,6 @@ component accessors="true" {
     function save(rc) {
         var message = entityNew('message');
         variables.framework.populate(message);
-        message.opened = false;
-        message.timestamp = now().getTime();
         messageService.save(message);
         rc.alertSuccess = "Successfully saved message"
         variables.framework.redirect(action = 'admin.message', preserve = 'alertSuccess');

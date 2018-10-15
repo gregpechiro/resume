@@ -25,6 +25,8 @@ component accessors="true" {
             variables.framework.redirect("main.default", "message,messageErrors,alertError");
         }
 
+        message.opened = false;
+        message.timestamp = now().getTime();
         messageService.save(message);
         rc.alertSuccess = "Successfully sent message"
         variables.framework.redirect(action = 'main.default', preserve = 'alertSuccess');
