@@ -1,0 +1,22 @@
+spring:
+
+  freemarker:
+    exposeSessionAttributes: true
+    cache: false
+    suffix: .ftlh
+    settings:
+      recognize_standard_file_extensions: true
+
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/resume?createDatabaseIfNotExist=true
+      username: root
+      password: root
+
+  jpa:
+      generateDdl: true
+
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1

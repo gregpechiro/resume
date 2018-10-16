@@ -1,2 +1,19 @@
-.tern-project
-static/Greg Pechiro's resume.docx
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+out/
+upload/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
