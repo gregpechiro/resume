@@ -3,7 +3,6 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Greg Pechiro's Resume</title>
 		<!--- Include Head --->
 		<#include "includes/head.ftlh"/>
@@ -73,7 +72,7 @@
 								<span class="intro">
 									This site was built with HTML5, JavaScript (JQuery), and CSS3. It is hosted on an Ubuntu virtual machine using
 									Java 8 running Spring Boot. The data is stored on a MySql database.<br>
-									Want to see how it works? View all of the source code on <a href="https://github.com/gregpechiro/resume" class="text-danger" target="_blank">GitHub.</a>
+									Want to see how it works? View all of the source code on <a href="https://github.com/gregpechiro/resume/tree/spring-boot" class="text-danger" target="_blank">GitHub.</a>
 								</span>
 							</div>
 						</div>
