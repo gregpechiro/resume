@@ -58,28 +58,30 @@
 				</div>
 
 				<div class="col">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Id</th>
-                                <th>Name</th>
-                                <th>Title</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<cfoutput>
-	                            <cfloop array="#rc.references#" index="reference">
-									<tr>
-										<td><a href="#buildCustomURL('/admin/reference')#/#reference.id#">#reference.id#</a></td>
-	                                    <td>#reference.firstName# #reference.lastName#</td>
-	                                    <td>#reference.title#</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this reference?" data-color="##ff0000" data-url="#buildCustomURL('/admin/reference')#/#reference.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
-									</tr>
-								</cfloop>
-							</cfoutput>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Id</th>
+	                                <th>Name</th>
+	                                <th>Title</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<cfoutput>
+		                            <cfloop array="#rc.references#" index="reference">
+										<tr>
+											<td><a href="#buildCustomURL('/admin/reference')#/#reference.id#">#reference.id#</a></td>
+		                                    <td>#reference.firstName# #reference.lastName#</td>
+		                                    <td>#reference.title#</td>
+											<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this reference?" data-color="##ff0000" data-url="#buildCustomURL('/admin/reference')#/#reference.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										</tr>
+									</cfloop>
+								</cfoutput>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

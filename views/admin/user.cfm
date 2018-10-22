@@ -49,28 +49,30 @@
 				</div>
 
 				<div class="col">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Id</th>
-                                <th>Username</th>
-                                <th>Role</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<cfoutput>
-	                            <cfloop array="#rc.users#" index="user">
-									<tr>
-										<td><a href="#buildCustomURL('/admin/user')#/#user.id#">#user.id#</a></td>
-	                                    <td>#user.username#</td>
-	                                    <td>#user.role#</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this user?" data-color="##ff0000" data-url="#buildCustomURL('/admin/user')#/#user.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
-									</tr>
-								</cfloop>
-							</cfoutput>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Id</th>
+	                                <th>Username</th>
+	                                <th>Role</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<cfoutput>
+		                            <cfloop array="#rc.users#" index="user">
+										<tr>
+											<td><a href="#buildCustomURL('/admin/user')#/#user.id#">#user.id#</a></td>
+		                                    <td>#user.username#</td>
+		                                    <td>#user.role#</td>
+											<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this user?" data-color="##ff0000" data-url="#buildCustomURL('/admin/user')#/#user.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										</tr>
+									</cfloop>
+								</cfoutput>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

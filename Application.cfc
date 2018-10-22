@@ -19,6 +19,7 @@ component extends=framework.one {
 
 	variables.framework = {
 		generateSES = true,
+		SESOmitIndex = true,
 		routes = [
 			{"$GET/rest/experience/:id/$" = "/experience/restOne/id/:id"},
 			{"$GET/rest/experience/$" = "/experience/restAll"},

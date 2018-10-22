@@ -68,28 +68,30 @@
 				</div>
 
 				<div class="col">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Id</th>
-                                <th>Name</th>
-                                <th>Title</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<cfoutput>
-	                            <cfloop array="#rc.experiences#" index="experience">
-									<tr>
-										<td><a href="#buildCustomURL('/admin/experience')#/#experience.id#">#experience.id#</a></td>
-	                                    <td>#experience.name#</td>
-	                                    <td>#experience.title#</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this experience?" data-color="##ff0000" data-url="#buildCustomURL('/admin/experience')#/#experience.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
-									</tr>
-								</cfloop>
-							</cfoutput>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Id</th>
+	                                <th>Name</th>
+	                                <th>Title</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<cfoutput>
+		                            <cfloop array="#rc.experiences#" index="experience">
+										<tr>
+											<td><a href="#buildCustomURL('/admin/experience')#/#experience.id#">#experience.id#</a></td>
+		                                    <td>#experience.name#</td>
+		                                    <td>#experience.title#</td>
+											<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this experience?" data-color="##ff0000" data-url="#buildCustomURL('/admin/experience')#/#experience.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										</tr>
+									</cfloop>
+								</cfoutput>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

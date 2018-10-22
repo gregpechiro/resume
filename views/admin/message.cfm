@@ -15,32 +15,34 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>Id</th>
-                                <th>Name</th>
-								<th>Email</th>
-                                <th>Subject</th>
-								<th>Timestamp</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<cfoutput>
-	                            <cfloop array="#rc.messages#" index="message">
-									<tr data-id="#message.id#" class="message pointer #(!message.opened ? ' table-secondary font-weight-bold' : '')#">
-										<td>#message.id#</td>
-	                                    <td>#message.name#</td>
-	                                    <td>#message.email#</td>
-										<td>#message.subject#</td>
-										<td>#dateTimeFormat(createObject("java","java.util.Date").init(message.timestamp), "d/m/yy h:nn tt")#</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this message?" data-color="##ff0000" data-url="#buildCustomURL('/admin/message')#/#message.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
-									</tr>
-								</cfloop>
-							</cfoutput>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Id</th>
+	                                <th>Name</th>
+									<th>Email</th>
+	                                <th>Subject</th>
+									<th>Timestamp</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<cfoutput>
+		                            <cfloop array="#rc.messages#" index="message">
+										<tr data-id="#message.id#" class="message pointer #(!message.opened ? ' table-secondary font-weight-bold' : '')#">
+											<td>#message.id#</td>
+		                                    <td>#message.name#</td>
+		                                    <td>#message.email#</td>
+											<td>#message.subject#</td>
+											<td>#dateTimeFormat(createObject("java","java.util.Date").init(message.timestamp), "d/m/yy h:nn tt")#</td>
+											<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this message?" data-color="##ff0000" data-url="#buildCustomURL('/admin/message')#/#message.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										</tr>
+									</cfloop>
+								</cfoutput>
+							</tbody>
+						</table>
+					</div
 				</div>
 			</div>
 		</div>

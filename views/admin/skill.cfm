@@ -43,28 +43,30 @@
 				</div>
 
 				<div class="col">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Id</th>
-                                <th>Name</th>
-                                <th>Category</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<cfoutput>
-	                            <cfloop array="#rc.skills#" index="skill">
-									<tr>
-										<td><a href="#buildCustomURL('/admin/skill')#/#skill.id#">#skill.id#</a></td>
-	                                    <td>#skill.name#</td>
-	                                    <td>#skill.category#</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this skill?" data-color="##ff0000" data-url="#buildCustomURL('/admin/skill')#/#skill.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
-									</tr>
-								</cfloop>
-							</cfoutput>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Id</th>
+	                                <th>Name</th>
+	                                <th>Category</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<cfoutput>
+		                            <cfloop array="#rc.skills#" index="skill">
+										<tr>
+											<td><a href="#buildCustomURL('/admin/skill')#/#skill.id#">#skill.id#</a></td>
+		                                    <td>#skill.name#</td>
+		                                    <td>#skill.category#</td>
+											<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this skill?" data-color="##ff0000" data-url="#buildCustomURL('/admin/skill')#/#skill.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										</tr>
+									</cfloop>
+								</cfoutput>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
