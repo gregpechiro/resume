@@ -30,7 +30,7 @@
 	                                    <td>${(message.email)!}</td>
 										<td>${(message.subject)!}</td>
 										<td>${(message.timestamp?number_to_datetime)!}</td>
-										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this message?" data-color="##ff0000" data-url="#buildCustomURL('/admin/message')#/#message.id#" data-type="warning"><i class="fas fa-trash"></i></a></td>
+										<td><a class="pointer text-danger confirm-action" data-message="Are you sure you would like to do delete this message?" data-color="#ff0000" data-url="/admin/message/${(message.id)!}" data-type="warning"><i class="fas fa-trash"></i></a></td>
 									</tr>
 								</#list>
 						</tbody>
@@ -65,7 +65,7 @@
 
         <cfoutput>
 			<script type="text/javascript">
-			var baseURL = '/admin/message/rest/';
+				var baseURL = '/admin/message/rest/';
 			</script>
 			<#include "../includes/scripts.ftlh"/>
 			<#include "../includes/admin/scripts.ftlh"/>
@@ -75,7 +75,7 @@
 
 		<script type="text/javascript">
 			confirm.yes = function(btn) {
-				$('<form method="post" action="' + btn.attr('data-url') + '"></form>').appendTo('body').submit();
+				$('<form method="post" action="' + btn.attr('data-url') + '"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></form>').appendTo('body').submit();
 			}
 		</script>
 

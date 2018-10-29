@@ -30,14 +30,14 @@ public class MessageAdminController {
 	@PostMapping()
 	public String save(Message message, RedirectAttributes redirectAttributes) {
 		messageRepository.save(message);
-		redirectAttributes.addFlashAttribute("Successfully saved message");
+		redirectAttributes.addFlashAttribute("alertSuccess", "Successfully saved message");
 		return "redirect:/admin/message";
 	}
 
 	@PostMapping("/{id}")
 	public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
 		messageRepository.deleteById(id);
-		redirectAttributes.addFlashAttribute("Successfully deleted message");
+		redirectAttributes.addFlashAttribute("alertSuccess", "Successfully deleted message");
 		return "redirect:/admin/message";
 	}
 
